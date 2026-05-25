@@ -2,9 +2,9 @@
 
 ## Overview
 
-`terminal-init` is a single-file Bash CLI (`./terminal-init`) that provisions a Debian/Ubuntu terminal environment. It installs base packages, oh-my-zsh, Zinit plugins, a Spaceship prompt config, motd, and mcli — then wires everything together in `~/.zshrc`.
+`tinit` is a single-file Bash CLI (`./tinit`) that provisions a Debian/Ubuntu terminal environment. It installs base packages, oh-my-zsh, Zinit plugins, a Spaceship prompt config, motd, and mcli — then wires everything together in `~/.zshrc`.
 
-A companion `install.sh` handles installation, upgrades, and uninstallation of `terminal-init` to `/usr/local/bin`. The `update` command in `terminal-init` invokes it directly via `curl`.
+A companion `install.sh` handles installation, upgrades, and uninstallation of `tinit` to `/usr/local/bin`. The `update` command in `tinit` invokes it directly via `curl`.
 
 ## Code Style
 
@@ -17,7 +17,7 @@ A companion `install.sh` handles installation, upgrades, and uninstallation of `
 
 ## Architecture
 
-- **Single file**: All logic lives in `./terminal-init` — no external scripts or libraries
+- **Single file**: All logic lives in `./tinit` — no external scripts or libraries
 - **Idempotency**: Every step checks whether the work is already done and emits `[skip]` rather than re-running
 - **Backups**: Existing config files (`~/.zshrc`, `.spaceshiprc.zsh`) are backed up with a `.bak` suffix before overwriting
 - **Error accumulation**: `report_error()` logs failures without stopping the script; the final message indicates completion regardless
@@ -37,7 +37,7 @@ A companion `install.sh` handles installation, upgrades, and uninstallation of `
 
 ## Versioning
 
-The version is hardcoded as `VERSION` near the top of `./terminal-init`. Follow semver:
+The version is hardcoded as `VERSION` near the top of `./tinit`. Follow semver:
 
 - **Patch** (`0.1.x`): bug fixes, behavioral tweaks, internal refactors
 - **Minor** (`0.x.0`): new commands, new install steps, new configurations
@@ -50,7 +50,7 @@ When bumping the version, also regenerate `install.sh` so the generated-by comme
 There is no test suite. After making changes, verify syntax with:
 
 ```sh
-bash -n terminal-init
+bash -n tinit
 bash -n install.sh
 bash -n install-regen.sh
 ```
@@ -58,10 +58,10 @@ bash -n install-regen.sh
 Then do a quick smoke-test by running:
 
 ```sh
-./terminal-init help
-./terminal-init version
-./terminal-init ensure-config
-./terminal-init update
+./tinit help
+./tinit version
+./tinit ensure-config
+./tinit update
 ```
 
 Verify that help text displays correctly with colorized output.

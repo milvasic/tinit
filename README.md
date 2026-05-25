@@ -1,4 +1,4 @@
-# terminal-init
+# tinit
 
 A single-file Bash CLI that sets up a Debian/Ubuntu terminal environment from scratch.
 
@@ -18,17 +18,17 @@ Run once on a fresh machine to get a fully configured zsh shell with a curated s
 ## Install
 
 ```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/milvasic/terminal-init/refs/heads/main/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/milvasic/tinit/refs/heads/main/install.sh)"
 ```
 
-This places the `terminal-init` binary in `/usr/local/bin`.
+This places the `tinit` binary in `/usr/local/bin`.
 
 ## Usage
 
 ### First-time setup
 
 ```sh
-terminal-init ensure-tools
+tinit ensure-tools
 ```
 
 Installs all packages, oh-my-zsh, sets zsh as the default shell, writes config files, and installs motd and mcli.
@@ -36,7 +36,7 @@ Installs all packages, oh-my-zsh, sets zsh as the default shell, writes config f
 ### Update config files only
 
 ```sh
-terminal-init ensure-config
+tinit ensure-config
 ```
 
 Re-writes `~/.zshrc` and `~/.config/.spaceshiprc.zsh` (backs up existing files first). Safe to re-run at any time.
@@ -44,14 +44,14 @@ Re-writes `~/.zshrc` and `~/.config/.spaceshiprc.zsh` (backs up existing files f
 ### Self-update the binary
 
 ```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/milvasic/terminal-init/refs/heads/main/install.sh)" -- --yes
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/milvasic/tinit/refs/heads/main/install.sh)" -- --yes
 ```
 
 ### Other commands
 
 ```sh
-terminal-init version   # print version
-terminal-init help      # show usage
+tinit version   # print version
+tinit help      # show usage
 ```
 
 Both commands are idempotent — steps already done are skipped, and existing config files are backed up before overwriting.

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# terminal-init — first-time terminal environment setup for Debian/Ubuntu
+# tinit — first-time terminal environment setup for Debian/Ubuntu
 # https://github.com/milvasic/terminal-init
 
 set -euo pipefail
 
-VERSION="0.2.0"
+VERSION="0.2.1"
 
 # ── Help ──────────────────────────────────────────────────────────────────────
 help() {
@@ -12,12 +12,12 @@ help() {
 A single-file Bash CLI for first-time terminal environment setup on Debian/Ubuntu.
 
 Usage:
-  terminal-init <command>
+  tinit <command>
 
 Commands:
   ensure-tools              # Full first-time setup (packages, OMZ/Zinit, zsh, configs)
   ensure-config             # Re-write config files only (.zshrc, .spaceshiprc.zsh)
-  update                    # Update terminal-init to the latest version
+  update                    # Update tinit to the latest version
   version, --version, -v    # Print version
   help, --help, -h          # Show this message
 
@@ -65,7 +65,7 @@ step() { printf "${BOLD}[step]${RESET} %s\n" "$1"; }
 # ── Help colorizer ────────────────────────────────────────────────────────────
 colorize_line() {
 	sed \
-		-e "s/\\(^\\|[^[:alnum:]_'-]\\)\\(terminal-init\\)\\([^[:alnum:]_'-]\\|$\\)/\\1${GREEN}\\2${RESET}\\3/g" \
+		-e "s/\\(^\\|[^[:alnum:]_'-]\\)\\(tinit\\)\\([^[:alnum:]_'-]\\|$\\)/\\1${GREEN}\\2${RESET}\\3/g" \
 		-e "s/\\(^\\|[^[:alnum:]_'-]\\)\\(ensure-tools\\|ensure-config\\|update\\|version\\|help\\)\\([^[:alnum:]_'-]\\|$\\)/\\1${YELLOW}\\2${RESET}\\3/g" \
 		-e "s/--[a-z][a-z-]*/${CYAN}&${RESET}/g" \
 		-e "s/\([ ,]\)\(-[a-z]\)/\\1${CYAN}\\2${RESET}/g"
@@ -217,7 +217,7 @@ EOF
 
 # ── ensure-tools ──────────────────────────────────────────────────────────────
 ensure_tools() {
-	log "terminal-init ensure-tools"
+	log "tinit ensure-tools"
 
 	# ── Install required packages ─────────────────────────────────────────────
 	step "Checking base packages (curl git zsh ncdu)..."
@@ -291,7 +291,7 @@ ensure_tools() {
 }
 
 # ── Update command ────────────────────────────────────────────────────────────
-INSTALLER_SELF_URL="https://raw.githubusercontent.com/milvasic/terminal-init/refs/heads/main/install.sh"
+INSTALLER_SELF_URL="https://raw.githubusercontent.com/milvasic/tinit/refs/heads/main/install.sh"
 update() {
 	if command -v curl >/dev/null 2>&1; then
 		bash -c "$(curl -fsSL "${INSTALLER_SELF_URL}")" -- --yes

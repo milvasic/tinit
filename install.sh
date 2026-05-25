@@ -5,16 +5,16 @@ set -eu
 
 # ══════════════════════════════════════════════════════════════════════════════
 # CONFIG — edit this block or regenerate with:
-#   distill --name "terminal-init" \
-#     --asset-url "https://raw.githubusercontent.com/milvasic/terminal-init/refs/heads/main/terminal-init" \
-#     --installer-url "https://raw.githubusercontent.com/milvasic/terminal-init/refs/heads/main/install.sh"
+#   distill --name "tinit" \
+#     --asset-url "https://raw.githubusercontent.com/milvasic/tinit/refs/heads/main/tinit" \
+#     --installer-url "https://raw.githubusercontent.com/milvasic/tinit/refs/heads/main/install.sh"
 # ══════════════════════════════════════════════════════════════════════════════
 
-BINARY_NAME="terminal-init"
+BINARY_NAME="tinit"
 INSTALL_DIR="/usr/local/bin"
 ASSET_TYPE="script"
-ASSET_URL="https://raw.githubusercontent.com/milvasic/terminal-init/refs/heads/main/terminal-init"
-INSTALLER_URL="https://raw.githubusercontent.com/milvasic/terminal-init/refs/heads/main/install.sh"
+ASSET_URL="https://raw.githubusercontent.com/milvasic/tinit/refs/heads/main/tinit"
+INSTALLER_URL="https://raw.githubusercontent.com/milvasic/tinit/refs/heads/main/install.sh"
 # VERSION_URL=""  # only needed for ASSET_TYPE=binary
 
 # ══════════════════════════════════════════════════════════════════════════════
