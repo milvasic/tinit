@@ -21,7 +21,7 @@ Run once on a fresh machine to get a fully configured zsh shell with a curated s
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/milvasic/tinit/refs/heads/main/install.sh)"
 ```
 
-This places the `tinit` binary in `/usr/local/bin`. If a previous version is already installed, the installer will prompt you to upgrade.
+This installs `tinit` to `/usr/local/bin`. If a previous version is already installed, the installer will prompt you to upgrade.
 
 For non-interactive environments (CI, scripts), pass `--yes` to auto-approve upgrades:
 
