@@ -85,4 +85,4 @@ Issues and pull requests are welcome. Please keep changes minimal and focused.
 
 ## License
 
-MIT
+[MIT](LICENSE)
