@@ -21,7 +21,23 @@ Run once on a fresh machine to get a fully configured zsh shell with a curated s
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/milvasic/tinit/refs/heads/main/install.sh)"
 ```
 
-This places the `tinit` binary in `/usr/local/bin`.
+This places the `tinit` binary in `/usr/local/bin`. If a previous version is already installed, the installer will prompt you to upgrade.
+
+For non-interactive environments (CI, scripts), pass `--yes` to auto-approve upgrades:
+
+```sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/milvasic/tinit/refs/heads/main/install.sh)" -- --yes
+```
+
+`wget` is also supported if `curl` is not available.
+
+## Uninstall
+
+```sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/milvasic/tinit/refs/heads/main/install.sh)" -- --uninstall
+```
+
+This removes `tinit` from `/usr/local/bin`.
 
 ## Usage
 
@@ -62,3 +78,11 @@ After running `ensure-tools`, restart your terminal or log out and back in to ac
 
 - Debian or Ubuntu (requires `apt`)
 - `curl` for the install one-liner
+
+## Contributing
+
+Issues and pull requests are welcome. Please keep changes minimal and focused.
+
+## License
+
+MIT
