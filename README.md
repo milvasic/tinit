@@ -63,6 +63,37 @@ Re-writes `~/.zshrc` and `~/.config/.spaceshiprc.zsh` (backs up existing files f
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/milvasic/tinit/refs/heads/main/install.sh)" -- --yes
 ```
 
+### Shell completions
+
+```sh
+tinit completions bash   # print bash completion script
+tinit completions zsh    # print zsh completion script
+```
+
+Add to your shell config to enable tab completion:
+
+**bash** — add to `~/.bashrc`:
+
+```bash
+source <(tinit completions bash)
+```
+
+**zsh** — add to `~/.zshrc`:
+
+```zsh
+source <(tinit completions zsh)
+```
+
+Or install to a completions directory:
+
+```sh
+# bash
+tinit completions bash | sudo tee /etc/bash_completion.d/tinit
+
+# zsh
+tinit completions zsh > ~/.zsh/completions/_tinit
+```
+
 ### Other commands
 
 ```sh
