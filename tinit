@@ -297,9 +297,10 @@ completions() {
 
 	case "$shell" in
 	bash)
-		cat <<'EOFCOMP'
+		cat <<'BASH_COMPLETION'
 _tinit() {
     local cur prev
+    COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
     local commands="ensure-tools ensure-config update completions version help"
@@ -310,10 +311,10 @@ _tinit() {
     fi
 }
 complete -F _tinit tinit
-EOFCOMP
+BASH_COMPLETION
 		;;
 	zsh)
-		cat <<'EOFCOMP'
+		cat <<'ZSH_COMPLETION'
 #compdef tinit
 
 _tinit() {
@@ -336,7 +337,7 @@ _tinit() {
 }
 
 _tinit "$@"
-EOFCOMP
+ZSH_COMPLETION
 		;;
 	*)
 		error "Usage: tinit completions <shell>"
