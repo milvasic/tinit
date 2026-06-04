@@ -4,7 +4,7 @@
 
 set -euo pipefail
 
-VERSION="0.3.0"
+VERSION="0.4.0"
 
 # ── Help ──────────────────────────────────────────────────────────────────────
 help() {
@@ -113,13 +113,13 @@ ensure_config() {
 
 	if cat >"$ZSHRC" <<'EOF'; then
 export ZSH="$HOME/.oh-my-zsh"
-export PATH=/usr/sbin:$PATH
+export PATH=$HOME/.local/bin:/usr/sbin:$PATH
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export SPACESHIP_CONFIG="$HOME/.config/.spaceshiprc.zsh"
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+[ -s "$HOME/.nvm" ] && export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # alias python="python3"
 ZSH_THEME=""
